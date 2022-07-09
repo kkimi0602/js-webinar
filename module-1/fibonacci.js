@@ -7,8 +7,8 @@
  */
 function fibonacci(n) {
     let nThFibonacci = 1;
-    let b = 0;
-    let actual = 1;
+    let b = 1;
+    let actual = 2;
     let tmp;
     /*
      * Your task is to calculate the nth value of the
@@ -20,6 +20,8 @@ function fibonacci(n) {
     // PLACE YOUR CODE BETWEEN THIS...
     if(n <= 0)
         return 0;
+    if(n == 1)
+        return 1;
     while(actual != n){
         tmp = actual;
         actual += b;
