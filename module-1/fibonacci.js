@@ -6,7 +6,10 @@
  * @returns {number} Fibonacci number or 0 if any arguments are not proper
  */
 function fibonacci(n) {
-    let nThFibonacci;
+    let nThFibonacci = 1;
+    let b = 0;
+    let actual = 1;
+    let tmp;
     /*
      * Your task is to calculate the nth value of the
      * Fibonacci sequence.
@@ -15,7 +18,14 @@ function fibonacci(n) {
      * Also, take into consideration the documentation of the function!
      */
     // PLACE YOUR CODE BETWEEN THIS...
-
+    if(n <= 0)
+        return 0;
+    while(actual != n){
+        tmp = actual;
+        actual += b;
+        b = tmp; 
+        nThFibonacci++;
+    }
     // ...AND THIS COMMENT LINE!
     return nThFibonacci;
 }
