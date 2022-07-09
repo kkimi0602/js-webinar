@@ -21,7 +21,7 @@ function grade(score) {
      * Also take into consideration the documentation of the function!
      */
     // PLACE YOUR CODE BETWEEN THIS...
-    if(score <= 0 || score > 100)
+    if(score < 0 || score > 100)
         gradeOfStudent = 0
     else if(score>=90)
         gradeOfStudent = 5;
