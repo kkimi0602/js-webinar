@@ -7,7 +7,8 @@
  * @returns {number} GCD or 0 if any arguments are not proper
  */
 function euclidean(a, b) {
-    let gcd;
+    let gcd = 0;
+    let tmp;
     /*
      * Your task is to compute the greatest common divisor of
      * the numbers are given in a and b variables, using the
@@ -16,8 +17,14 @@ function euclidean(a, b) {
      * Also, take into consideration the documentation of the function!
      */
     // PLACE YOUR CODE BETWEEN THIS...
-
-
+    if(a < 0 || b < 0)
+        return 0;
+    while(b != 0){
+        tmp = a%b;
+        a = b;
+        b = tmp;
+    }
+    gcd = a;
     // ...AND THIS COMMENT LINE!
     return gcd;
 }
