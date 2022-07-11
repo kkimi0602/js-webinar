@@ -5,10 +5,9 @@
  * @param {number} n (n >= 0)
  * @returns {number} Fibonacci number or 0 if any arguments are not proper
  */
-function fibonacci(n) {
-    let nThFibonacci = 1;
-    let b = 1;
-    let actual = 2;
+ function fibonacci(n) {
+    let nThFibonacci = 0;
+    let b = 0;
     let tmp;
     /*
      * Your task is to calculate the nth value of the
@@ -18,16 +17,15 @@ function fibonacci(n) {
      * Also, take into consideration the documentation of the function!
      */
     // PLACE YOUR CODE BETWEEN THIS...
-    if(n <= 0)
+    if(n < 0)
         return 0;
-    if(n == 1)
-        return 1;
-    while(actual != n){
-        tmp = actual;
-        actual += b;
-        b = tmp; 
-        nThFibonacci++;
+    else{
+        if(n < 2)
+            nThFibonacci = n;
+        else
+            nThFibonacci = fibonacci(n-2) + fibonacci(n-1); 
     }
+    
     // ...AND THIS COMMENT LINE!
     return nThFibonacci;
 }
