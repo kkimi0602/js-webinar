@@ -11,8 +11,8 @@
  * @returns {number} grade or 0 if any arguments are not proper
  */
 function grade(score) {
-    let gradeOfStudent;
-    let count = score / 10; 
+    let gradeOfStudent = 1;
+    let count = parseInt(score / 10); 
     /*
      * Your task is to calculate the grade of the student
      * based on his/her score which can be found in the
