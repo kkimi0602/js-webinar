@@ -1,3 +1,6 @@
+const { element } = require("../test/mock/ElementFinder");
+const ElementFinder = require("../test/mock/ElementFinder");
+
 /**
  * Create an Element class that represents an element of
  * the application, and
@@ -18,4 +21,42 @@
  * Use Protractor API to retrieve element
  * @see {@link https://www.protractortest.org/#/api?view=ElementFinder}
  */
-module.exports = class Element { }
+class Element{
+    constructor(name, locator){
+        this.name = name;
+        this.locator = locator;
+
+        this.parent = null;
+        this.children = {};
+    }
+
+    setParent(parent){
+        this.parent = parent;
+    }
+
+    addChildren(child){
+        if(this.children.hasOwnProperty(child.name)){
+            throw new Error(child.name + " is already added!");
+        }
+        this.children[child.name] = child;
+        this.children[child.name].setParent(this);
+    }
+
+    get(name){
+        if(arguments.length == 0){
+            return ElementFinder.element(this.locator);
+        }else{
+            if(this.children.hasOwnProperty(name))
+                return ElementFinder.element(this.children[name].locator);
+            else{
+                for(const key in this.children){
+                    return this.children[key].get(name);
+                }
+            }
+        }
+        throw new Error("Element is not available!");
+    }
+
+    
+}
+module.exports = Element;

@@ -14,4 +14,19 @@
  * 7. It has a method to load the page, i.e. Navigates to
  *    the URL of it (.load())
  */
-module.exports = class Layout {}
+const Element = require("./Element");
+module.exports = class Layout extends Element {
+    constructor(name, url, locator){
+        super(name,locator);
+        this.url = url;
+    }
+    setParent(parent){
+        if(parent != null){
+            throw new Error("Set parent is not available!")
+        }
+    }
+    load(url){
+        window.location.href = this.url;
+    }
+    
+}
