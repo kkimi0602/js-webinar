@@ -46,9 +46,9 @@ class Element{
         if(arguments.length == 0){
             return ElementFinder.element(this.locator);
         }else{
-            if(this.children.hasOwnProperty(name))
+            if(this.children.hasOwnProperty(name)){
                 return ElementFinder.element(this.children[name].locator);
-            else{
+            }else{
                 for(const key in this.children){
                     return this.children[key].get(name);
                 }

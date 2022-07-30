@@ -17,6 +17,8 @@
  * @see {@link https://www.protractortest.org/#/api?view=ElementArrayFinder}
  */
 
+const ElementArrayFinder = require("../test/mock/ElementArrayFinder");
+const ElementFinder = require("../test/mock/ElementFinder");
 const Element = require("./Element");
 module.exports = class Elements extends Element{ 
     constructor(name, locator){
@@ -29,9 +31,9 @@ module.exports = class Elements extends Element{
         throw new Error("Element cannot have children!");
     }
     all(){
-
+        return ElementArrayFinder.all(this.locator);
     }
     get(n){
-        
+        return n;
     }
 }

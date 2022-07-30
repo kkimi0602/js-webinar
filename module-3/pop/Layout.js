@@ -14,6 +14,7 @@
  * 7. It has a method to load the page, i.e. Navigates to
  *    the URL of it (.load())
  */
+const ElementFinder = require("../test/mock/ElementFinder");
 const Element = require("./Element");
 module.exports = class Layout extends Element {
     constructor(name, url, locator){
@@ -25,8 +26,8 @@ module.exports = class Layout extends Element {
             throw new Error("Set parent is not available!")
         }
     }
-    load(url){
-        window.location.href = this.url;
+    load(){
+        return this.url;
     }
     
 }
