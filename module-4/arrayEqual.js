@@ -11,3 +11,12 @@
  * @returns {boolean} true if the two arrays are equal,
  *                    false otherwise
  */
+module.exports = function arrayEqual(first, second){
+    /*const equals = (a, b) =>
+        a.length === b.length &&
+        a.every((v, i) => v === b[i]);*/
+    const equals = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+    if(!equals(first,second))
+        first.length != second.length ? console.warn(`${first.length} ${second.length}`) : console.warn(`${first} ${second}`);
+    return equals(first,second);
+}
