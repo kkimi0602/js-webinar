@@ -19,4 +19,5 @@ module.exports = function arrayEqual(first, second){
     if(!equals(first,second))
         first.length != second.length ? console.warn(`${first.length} ${second.length}`) : console.warn(`${first} ${second}`);
     return equals(first,second);
+    //
 }
